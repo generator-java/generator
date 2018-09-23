@@ -1,0 +1,20 @@
+##create fileInfo dao,this is a interface
+package ${fileInfo.beanDaoUrl};
+
+
+/**
+* @author $!{developerInfo.authorName}
+* @email $!{developerInfo.authorMail}>
+* @date $!{developerInfo.date}
+* @desc $!{gfi.desc}
+* @version $!{developerInfo.version}
+*/
+public class $!{fileInfo.name}ServiceImpl implements $!{fileInfo.name}Service{
+
+	/**
+	 * $!{fileInfo.lowerName} Dao
+	 */
+	private $!{fileInfo.name}Dao $!{fileInfo.lowerName}Dao;
+	
+
+}

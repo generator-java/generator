@@ -1,0 +1,15 @@
+
+
+#set( $iAmVariable = "good!" )
+#set( $name2= "van_fone" )
+
+Welcome $name to velocity.com
+today is $date.
+#foreach ($i in $list)
+hello$i
+#end
+$iAmVariable
+$!{name2}
+
+
+

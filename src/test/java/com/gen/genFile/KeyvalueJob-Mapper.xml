@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @author zhanSan -->
+<!-- @email zhanSan@gmail.com> -->
+<!-- @date 2018-09-23 -->
+<!-- @desc java文件头的备注信息 -->
+<!-- @version 0.0.1 -->
+<mapper namespace="com.gen.mapper.ErrBugTogetherMapper">
+    <resultMap id="BaseResultMapId" type="com.gen.model.ErrBugTogetherEntity">
+        <result column="id"                jdbcType="INTEGER"           property="id"               />
+        <result column="keyName"           jdbcType="VARCHAR"           property="keyName"          />
+        <result column="question"          jdbcType="VARCHAR"           property="question"         />
+        <result column="relatedPerson"     jdbcType="VARCHAR"           property="relatedPerson"    />
+        <result column="principleContent"  jdbcType="VARCHAR"           property="principleContent" />
+        <result column="language"          jdbcType="VARCHAR"           property="language"         />
+        <result column="axomName"          jdbcType="VARCHAR"           property="axomName"         />
+        <result column="calendar"          jdbcType="TIMESTAMP"         property="calendar"         />
+        <result column="webSite"           jdbcType="VARCHAR"           property="webSite"          />
+        <result column="largeContent"      jdbcType="VARCHAR"           property="largeContent"     />
+        <result column="path"              jdbcType="VARCHAR"           property="path"             />
+        <result column="dimension"         jdbcType="VARCHAR"           property="dimension"        />
+        <result column="author"            jdbcType="VARCHAR"           property="author"           />
+        <result column="situs"             jdbcType="VARCHAR"           property="situs"            />
+        <result column="status"            jdbcType="INTEGER"           property="status"           />
+        <result column="updateTime"        jdbcType="TIMESTAMP"         property="updateTime"       />
+        <result column="postscript"        jdbcType="VARCHAR"           property="postscript"       />
+        <result column="createTime"        jdbcType="TIMESTAMP"         property="createTime"       />
+    
+    </resultMap>
+
+    <!-- 基本列 -->
+<sql id="Base_Column_List">
+    id                  "id"               ,
+    key_name            "keyName"          ,
+    question            "question"         ,
+    related_person      "relatedPerson"    ,
+    principle_content   "principleContent" ,
+    language            "language"         ,
+    axom_name           "axomName"         ,
+    calendar            "calendar"         ,
+    web_site            "webSite"          ,
+    large_content       "largeContent"     ,
+    path                "path"             ,
+    dimension           "dimension"        ,
+    author              "author"           ,
+    situs               "situs"            ,
+    status              "status"           ,
+    update_time         "updateTime"       ,
+    postscript          "postscript"       ,
+    create_time         "createTime"       
+</sql>
+
+<!--根据类型查询-->
+<select id="getKeyvalueJobEntityList" resultType="com.gen.genFile.KeyvalueJobEntity" >
+
+    SELECT
+    <include refid="base_column"/>
+    FROM keyvalue_job tab
+
+</select>
+
+<!-- 单个插入 -->
+<insert id="insertKeyvalueJobEntity" parameterType="com.gen.genFile.KeyvalueJobEntity" useGeneratedKeys="true"
+        keyProperty="id">
+    INSERT INTO keyvalue_job
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+            id                 ,
+        </if>
+            <if test="keyName != null">
+            key_name           ,
+        </if>
+            <if test="question != null">
+            question           ,
+        </if>
+            <if test="relatedPerson != null">
+            related_person     ,
+        </if>
+            <if test="principleContent != null">
+            principle_content  ,
+        </if>
+            <if test="language != null">
+            language           ,
+        </if>
+            <if test="axomName != null">
+            axom_name          ,
+        </if>
+            <if test="calendar != null">
+            calendar           ,
+        </if>
+            <if test="webSite != null">
+            web_site           ,
+        </if>
+            <if test="largeContent != null">
+            large_content      ,
+        </if>
+            <if test="path != null">
+            path               ,
+        </if>
+            <if test="dimension != null">
+            dimension          ,
+        </if>
+            <if test="author != null">
+            author             ,
+        </if>
+            <if test="situs != null">
+            situs              ,
+        </if>
+            <if test="status != null">
+            status             ,
+        </if>
+            <if test="updateTime != null">
+            update_time        ,
+        </if>
+            <if test="postscript != null">
+            postscript         ,
+        </if>
+            <if test="createTime != null">
+            create_time        ,
+        </if>
+        </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+            #{id}              ,
+        </if>
+            <if test="keyName != null">
+            #{keyName}         ,
+        </if>
+            <if test="question != null">
+            #{question}        ,
+        </if>
+            <if test="relatedPerson != null">
+            #{relatedPerson}   ,
+        </if>
+            <if test="principleContent != null">
+            #{principleContent},
+        </if>
+            <if test="language != null">
+            #{language}        ,
+        </if>
+            <if test="axomName != null">
+            #{axomName}        ,
+        </if>
+            <if test="calendar != null">
+            #{calendar}        ,
+        </if>
+            <if test="webSite != null">
+            #{webSite}         ,
+        </if>
+            <if test="largeContent != null">
+            #{largeContent}    ,
+        </if>
+            <if test="path != null">
+            #{path}            ,
+        </if>
+            <if test="dimension != null">
+            #{dimension}       ,
+        </if>
+            <if test="author != null">
+            #{author}          ,
+        </if>
+            <if test="situs != null">
+            #{situs}           ,
+        </if>
+            <if test="status != null">
+            #{status}          ,
+        </if>
+            <if test="updateTime != null">
+            #{updateTime}      ,
+        </if>
+            <if test="postscript != null">
+            #{postscript}      ,
+        </if>
+            <if test="createTime != null">
+            #{createTime}      ,
+        </if>
+        </trim>
+</insert>
+
+<!-- 批量新增 -->
+<insert id="insertBatchKeyvalueJobEntity" parameterType="java.util.List">
+    INSERT INTO keyvalue_job
+<trim prefix="(" suffix=")" suffixOverrides=",">
+    id                 ,
+    key_name           ,
+    question           ,
+    related_person     ,
+    principle_content  ,
+    language           ,
+    axom_name          ,
+    calendar           ,
+    web_site           ,
+    large_content      ,
+    path               ,
+    dimension          ,
+    author             ,
+    situs              ,
+    status             ,
+    update_time        ,
+    postscript         ,
+    create_time        
+</trim>
+
+    VALUES
+<foreach collection="list" item="item" index="index" separator=",">
+    (
+    #{id}              ,
+    #{keyName}         ,
+    #{question}        ,
+    #{relatedPerson}   ,
+    #{principleContent},
+    #{language}        ,
+    #{axomName}        ,
+    #{calendar}        ,
+    #{webSite}         ,
+    #{largeContent}    ,
+    #{path}            ,
+    #{dimension}       ,
+    #{author}          ,
+    #{situs}           ,
+    #{status}          ,
+    #{updateTime}      ,
+    #{postscript}      ,
+    #{createTime}      
+    )
+        </foreach>
+    </insert>
+
+<!-- 单个更新 -->
+<update id="updateKeyvalueJobEntity" parameterType="com.gen.genFile.KeyvalueJobEntity">
+    update keyvalue_job
+<set>
+    <if test="keyName != null">
+    id                  = #{id}              ,
+</if>
+    <if test="keyName != null">
+    key_name            = #{keyName}         ,
+</if>
+    <if test="keyName != null">
+    question            = #{question}        ,
+</if>
+    <if test="keyName != null">
+    related_person      = #{relatedPerson}   ,
+</if>
+    <if test="keyName != null">
+    principle_content   = #{principleContent},
+</if>
+    <if test="keyName != null">
+    language            = #{language}        ,
+</if>
+    <if test="keyName != null">
+    axom_name           = #{axomName}        ,
+</if>
+    <if test="keyName != null">
+    calendar            = #{calendar}        ,
+</if>
+    <if test="keyName != null">
+    web_site            = #{webSite}         ,
+</if>
+    <if test="keyName != null">
+    large_content       = #{largeContent}    ,
+</if>
+    <if test="keyName != null">
+    path                = #{path}            ,
+</if>
+    <if test="keyName != null">
+    dimension           = #{dimension}       ,
+</if>
+    <if test="keyName != null">
+    author              = #{author}          ,
+</if>
+    <if test="keyName != null">
+    situs               = #{situs}           ,
+</if>
+    <if test="keyName != null">
+    status              = #{status}          ,
+</if>
+    <if test="keyName != null">
+    update_time         = #{updateTime}      ,
+</if>
+    <if test="keyName != null">
+    postscript          = #{postscript}      ,
+</if>
+    <if test="keyName != null">
+    create_time         = #{createTime}      
+</if>
+    </set>
+    where ID = #{id}
+</update>
+ 
+
+    <!-- 删除 -->
+<update id="deleteKeyvalueJobEntity" >
+    DELETE tab
+    FROM keyvalue_job tab
+    WHERE tab.id = #{id}
+</update>
+    
+
+ 
+
+<!-- 单个查询 -->
+<select id="getKeyvalueJobEntityById" resultMap="BaseResultMapId" parameterType="Integer">
+
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM keyvalue_job
+    WHERE id = #{id}
+
+</select>
+
+
+
+
+
+</mapper>

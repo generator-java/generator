@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gen.mapper.ErrBugTogetherMapper">
+    <resultMap id="BaseResultMap" type="com.gen.model.ErrBugTogetherEntity">
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="KEY_NAME" jdbcType="VARCHAR" property="keyName"/>
+        <result column="QUESTION" jdbcType="VARCHAR" property="question"/>
+        <result column="TYPE" jdbcType="VARCHAR" property="type"/>
+        <result column="RELATED_PERSON" jdbcType="VARCHAR" property="relatedPerson"/>
+        <result column="PRINCIPLE_CONTENT" jdbcType="VARCHAR" property="principleContent"/>
+        <result column="LANGUAGE" jdbcType="VARCHAR" property="language"/>
+        <result column="AXOM_NAME" jdbcType="VARCHAR" property="axomName"/>
+        <result column="CALENDAR" jdbcType="TIMESTAMP" property="calendar"/>
+        <result column="WEB_SITE" jdbcType="VARCHAR" property="webSite"/>
+        <result column="LARGE_CONTENT" jdbcType="LONGVARCHAR" property="largeContent"/>
+        <result column="PATH" jdbcType="VARCHAR" property="path"/>
+        <result column="DIMENSION" jdbcType="VARCHAR" property="dimension"/>
+        <result column="AUTHOR" jdbcType="VARCHAR" property="author"/>
+        <result column="SITUS" jdbcType="VARCHAR" property="situs"/>
+        <result column="STATUS" jdbcType="INTEGER" property="status"/>
+        <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="POSTSCRIPT" jdbcType="VARCHAR" property="postscript"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+
+    </resultMap>
+
+
+    <resultMap id="BaseResultMapId" type="com.gen.model.ErrBugTogetherEntity">
+        <result column="id"                 jdbcType="BIGINT"         property="id"              />
+        <result column="keyName"            jdbcType="VARCHAR"     property="keyName"         />
+        <result column="question"           jdbcType="VARCHAR"     property="question"        />
+        <result column="relatedPerson"      jdbcType="VARCHAR"     property="relatedPerson"   />
+        <result column="principleContent"   jdbcType="VARCHAR"     property="principleContent"/>
+        <result column="language"           jdbcType="VARCHAR"     property="language"        />
+        <result column="axomName"           jdbcType="VARCHAR"     property="axomName"        />
+        <result column="calendar"           jdbcType="TIMESTAMP"   property="calendar"        />
+        <result column="webSite"            jdbcType="VARCHAR"     property="webSite"         />
+        <result column="largeContent"       jdbcType="VARCHAR"     property="largeContent"    />
+        <result column="path"               jdbcType="VARCHAR"     property="path"            />
+        <result column="dimension"          jdbcType="VARCHAR"     property="dimension"       />
+        <result column="author"             jdbcType="VARCHAR"     property="author"          />
+        <result column="situs"              jdbcType="VARCHAR"     property="situs"           />
+        <result column="status"             jdbcType="BIGINT"      property="status"          />
+        <result column="updateTime"         jdbcType="TIMESTAMP"   property="updateTime"      />
+        <result column="postscript"         jdbcType="VARCHAR"     property="postscript"      />
+        <result column="createTime"         jdbcType="TIMESTAMP"   property="createTime"      />
+
+    </resultMap>
+    <!-- 基本列 -->
+    <sql id="Base_Column_List">
+    ID,KEY_NAME,QUESTION,TYPE,RELATED_PERSON,PRINCIPLE_CONTENT,LANGUAGE,AXOM_NAME,CALENDAR,WEB_SITE,LARGE_CONTENT,PATH,DIMENSION,AUTHOR,SITUS,STATUS,UPDATE_TIME,POSTSCRIPT,CREATE_TIME
+  </sql>
+
+    <!-- 单个插入 -->
+    <insert id="insertErrBugTogether" parameterType="com.gen.model.ErrBugTogetherEntity" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into err_bug_together
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="keyName != null">
+                KEY_NAME,
+            </if>
+            <if test="question != null">
+                QUESTION,
+            </if>
+            <if test="type != null">
+                TYPE,
+            </if>
+            <if test="relatedPerson != null">
+                RELATED_PERSON,
+            </if>
+            <if test="principleContent != null">
+                PRINCIPLE_CONTENT,
+            </if>
+            <if test="language != null">
+                LANGUAGE,
+            </if>
+            <if test="axomName != null">
+                AXOM_NAME,
+            </if>
+            <if test="calendar != null">
+                CALENDAR,
+            </if>
+            <if test="webSite != null">
+                WEB_SITE,
+            </if>
+            <if test="largeContent != null">
+                LARGE_CONTENT,
+            </if>
+            <if test="path != null">
+                PATH,
+            </if>
+            <if test="dimension != null">
+                DIMENSION,
+            </if>
+            <if test="author != null">
+                AUTHOR,
+            </if>
+            <if test="situs != null">
+                SITUS,
+            </if>
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME,
+            </if>
+            <if test="postscript != null">
+                POSTSCRIPT,
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="keyName != null">
+                #{keyName,jdbcType=VARCHAR},
+            </if>
+            <if test="question != null">
+                #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="relatedPerson != null">
+                #{relatedPerson,jdbcType=VARCHAR},
+            </if>
+            <if test="principleContent != null">
+                #{principleContent,jdbcType=VARCHAR},
+            </if>
+            <if test="language != null">
+                #{language,jdbcType=VARCHAR},
+            </if>
+            <if test="axomName != null">
+                #{axomName,jdbcType=VARCHAR},
+            </if>
+            <if test="calendar != null">
+                #{calendar,jdbcType=TIMESTAMP},
+            </if>
+            <if test="webSite != null">
+                #{webSite,jdbcType=VARCHAR},
+            </if>
+            <if test="largeContent != null">
+                #{largeContent,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="path != null">
+                #{path,jdbcType=VARCHAR},
+            </if>
+            <if test="dimension != null">
+                #{dimension,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="situs != null">
+                #{situs,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="postscript != null">
+                #{postscript,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+
+        </trim>
+    </insert>
+
+    <!-- 批量新增 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO err_bug_together
+        (ID,KEY_NAME,QUESTION,TYPE,RELATED_PERSON,PRINCIPLE_CONTENT,LANGUAGE,AXOM_NAME,CALENDAR,WEB_SITE,LARGE_CONTENT,PATH,DIMENSION,AUTHOR,SITUS,STATUS,UPDATE_TIME,POSTSCRIPT,CREATE_TIME)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=INTEGER},#{item.keyName,jdbcType=VARCHAR},#{item.question,jdbcType=VARCHAR},#{item.type,jdbcType=VARCHAR},#{item.relatedPerson,jdbcType=VARCHAR},#{item.principleContent,jdbcType=VARCHAR},#{item.language,jdbcType=VARCHAR},#{item.axomName,jdbcType=VARCHAR},#{item.calendar,jdbcType=TIMESTAMP},#{item.webSite,jdbcType=VARCHAR},#{item.largeContent,jdbcType=LONGVARCHAR},#{item.path,jdbcType=VARCHAR},#{item.dimension,jdbcType=VARCHAR},#{item.author,jdbcType=VARCHAR},#{item.situs,jdbcType=VARCHAR},#{item.status,jdbcType=INTEGER},#{item.updateTime,jdbcType=nuljdbcType=TIMESTAMP},#{item.postscript,jdbcType=VARCHAR},#{item.createTime,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+
+    <!-- 单个更新 -->
+    <update id="updateErrBugTogether" parameterType="com.gen.model.ErrBugTogetherEntity">
+        update err_bug_together
+        <set>
+            <if test="keyName != null">
+                KEY_NAME=#{keyName,jdbcType=VARCHAR},
+            </if>
+            <if test="question != null">
+                QUESTION=#{question,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                TYPE=#{type,jdbcType=VARCHAR},
+            </if>
+            <if test="relatedPerson != null">
+                RELATED_PERSON=#{relatedPerson,jdbcType=VARCHAR},
+            </if>
+            <if test="principleContent != null">
+                PRINCIPLE_CONTENT=#{principleContent,jdbcType=VARCHAR},
+            </if>
+            <if test="language != null">
+                LANGUAGE=#{language,jdbcType=VARCHAR},
+            </if>
+            <if test="axomName != null">
+                AXOM_NAME=#{axomName,jdbcType=VARCHAR},
+            </if>
+            <if test="calendar != null">
+                CALENDAR=#{calendar,jdbcType=TIMESTAMP},
+            </if>
+            <if test="webSite != null">
+                WEB_SITE=#{webSite,jdbcType=VARCHAR},
+            </if>
+            <if test="largeContent != null">
+                LARGE_CONTENT=#{largeContent,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="path != null">
+                PATH=#{path,jdbcType=VARCHAR},
+            </if>
+            <if test="dimension != null">
+                DIMENSION=#{dimension,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                AUTHOR=#{author,jdbcType=VARCHAR},
+            </if>
+            <if test="situs != null">
+                SITUS=#{situs,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                STATUS=#{status,jdbcType=INTEGER},
+            </if>
+            <if test="updateTime != null">
+                UPDATE_TIME=#{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="postscript != null">
+                POSTSCRIPT=#{postscript,jdbcType=VARCHAR},
+            </if>
+            <if test="createTime != null">
+                CREATE_TIME=#{createTime,jdbcType=TIMESTAMP},
+            </if>
+
+        </set>
+        where ID = #{id,jdbcType=BIGINT}
+    </update>
+
+    <!-- 批量更新 -->
+    <update id="updateErrBugTogetherById" parameterType="java.util.List">
+        UPDATE err_bug_together
+        <set>
+            <if test="item.keyName != null">
+                KEY_NAME=#{item.keyName,jdbcType=VARCHAR},
+            </if>
+            <if test="item.question != null">
+                QUESTION=#{item.question,jdbcType=VARCHAR},
+            </if>
+            <if test="item.type != null">
+                TYPE=#{item.type,jdbcType=VARCHAR},
+            </if>
+            <if test="item.relatedPerson != null">
+                RELATED_PERSON=#{item.relatedPerson,jdbcType=VARCHAR},
+            </if>
+            <if test="item.principleContent != null">
+                PRINCIPLE_CONTENT=#{item.principleContent,jdbcType=VARCHAR},
+            </if>
+            <if test="item.language != null">
+                LANGUAGE=#{item.language,jdbcType=VARCHAR},
+            </if>
+            <if test="item.axomName != null">
+                AXOM_NAME=#{item.axomName,jdbcType=VARCHAR},
+            </if>
+            <if test="item.calendar != null">
+                CALENDAR=#{item.calendar,jdbcType=TIMESTAMP},
+            </if>
+            <if test="item.webSite != null">
+                WEB_SITE=#{item.webSite,jdbcType=VARCHAR},
+            </if>
+            <if test="item.largeContent != null">
+                LARGE_CONTENT=#{item.largeContent,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="item.path != null">
+                PATH=#{item.path,jdbcType=VARCHAR},
+            </if>
+            <if test="item.dimension != null">
+                DIMENSION=#{item.dimension,jdbcType=VARCHAR},
+            </if>
+            <if test="item.author != null">
+                AUTHOR=#{item.author,jdbcType=VARCHAR},
+            </if>
+            <if test="item.situs != null">
+                SITUS=#{item.situs,jdbcType=VARCHAR},
+            </if>
+            <if test="item.status != null">
+                STATUS=#{item.status,jdbcType=INTEGER},
+            </if>
+            <if test="item.updateTime != null">
+                UPDATE_TIME=#{item.updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="item.postscript != null">
+                POSTSCRIPT=#{item.postscript,jdbcType=VARCHAR},
+            </if>
+            <if test="item.createTime != null">
+                CREATE_TIME=#{item.createTime,jdbcType=TIMESTAMP},
+            </if>
+
+        </set>
+        WHERE ID = #{item.id,jdbcType=BIGINT}
+    </update>
+
+    <!-- 删除 -->
+    <update id="deleteErrBugTogether" parameterType="com.gen.model.ErrBugTogetherEntity">
+    DELETE ebt
+    FROM err_bug_together ebt
+    WHERE ebt.id = #{id}
+  </update>
+
+    <!-- 批量删除 -->
+    <update id="deleteBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update err_bug_together
+            set UPDATED = #{item.updated,jdbcType=TIMESTAMP},UPDATEDBY = #{item.updatedby,jdbcType=VARCHAR}, IS_DELETE =
+            'Y'
+            where ID = #{item.id,jdbcType=BIGINT}
+        </foreach>
+    </update>
+
+
+    <select id="getErrBugList" resultMap="BaseResultMap">
+
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM err_bug_together ebt
+
+    </select>
+
+    <!-- 单个查询 -->
+    <select id="getErrBugTogetherById" resultMap="BaseResultMap" parameterType="Integer">
+
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM err_bug_together
+        WHERE id = #{id}
+
+    </select>
+
+    <!-- 查询所有 -->
+    <!-- 分页查询 ,instr 提高查询效率-->
+    <select id="findErrBug" resultMap="BaseResultMap">
+
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM err_bug_together ebt
+        <where>
+            <if test="type !=null and type != ''">
+                ebt.type = #{type}
+            </if>
+        </where>
+
+        <if test="find !=null and find != ''">
+            ORDER BY
+            (instr(KEY_NAME, #{find}))>0 DESC ,
+            (instr(LARGE_CONTENT,#{find}))>0 DESC
+        </if>
+        <if test="find == null or find == ''">
+            ORDER BY ebt.update_time DESC
+        </if>
+
+    </select>
+
+
+    <!--根据类型查询-->
+    <select id="findByType" resultType="string">
+
+        SELECT
+            ebt.key_name
+        FROM
+            err_bug_together ebt
+        <if test="keyName !=null and keyName != ''">
+            ORDER BY
+            (instr(ebt.key_name , #{keyName}))>0 DESC
+        </if>
+        <if test="keyName == null or keyName == ''">
+            ORDER BY ebt.update_time DESC
+        </if>
+
+    </select>
+
+
+    <!--根据类型查询-->
+    <select id="getColumnInfo" resultType="com.gen.model.TableInfo" parameterType="string">
+
+        SELECT
+          column_name     AS    columnName      ,
+          column_comment  AS    columnComment   ,
+          data_type       AS    dataType
+
+        FROM information_schema.columns
+
+        WHERE
+            table_name=#{tabName}
+        AND table_schema=#{dbName}
+
+    </select>
+
+</mapper>

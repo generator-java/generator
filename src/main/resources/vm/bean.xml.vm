@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- @author $!{developerInfo.authorName} -->
+<!-- @email $!{developerInfo.authorMail}> -->
+<!-- @date $!{developerInfo.date} -->
+<!-- @desc $!{gfi.desc} -->
+<!-- @version $!{developerInfo.version} -->
+<mapper namespace="com.gen.mapper.ErrBugTogetherMapper">
+    <resultMap id="BaseResultMapId" type="com.gen.model.ErrBugTogetherEntity">
+##        <id column="id" jdbcType="BIGINT" property="id"/>
+    #foreach($data in $dataList )
+    <result column=$!{data.colNameHumpQuota30} jdbcType=$!{data.dataTypeQuota30} property=$!{data.colNameHumpQuota30}/>
+    #end
+
+    </resultMap>
+
+    <!-- 基本列 -->
+<sql id="Base_Column_List">
+#foreach($data in $dataList )
+    $!{data.columnName30} $!{data.colNameHumpQuotaComma30}
+#end
+</sql>
+
+<!--根据类型查询-->
+<select id="get${gfi.entityName}List" resultType="${gfi.pkgPathEntityName}" >
+
+    SELECT
+    <include refid="base_column"/>
+    FROM ${fileInfo.tabName} tab
+
+</select>
+
+<!-- 单个插入 -->
+<insert id="insert${gfi.entityName}" parameterType="${gfi.pkgPathEntityName}" useGeneratedKeys="true"
+        keyProperty="id">
+    INSERT INTO ${fileInfo.tabName}
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+    #foreach($data in $dataList )
+        <if test="$!{data.colNameHump} != null">
+            $!{data.columnName30},
+        </if>
+    #end
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+    #foreach($data in $dataList )
+        <if test="$!{data.colNameHump} != null">
+            $!{data.colNameSymbolHump30},
+        </if>
+    #end
+    </trim>
+</insert>
+
+<!-- 批量新增 -->
+<insert id="insertBatch${gfi.entityName}" parameterType="java.util.List">
+    INSERT INTO ${fileInfo.tabName}
+<trim prefix="(" suffix=")" suffixOverrides=",">
+#foreach($data in $dataList )
+    $!{data.columnNameComma30}
+#end
+</trim>
+
+    VALUES
+<foreach collection="list" item="item" index="index" separator=",">
+    (
+#foreach($data in $dataList )
+    $!{data.colNameSymbolHumpComma30}
+#end
+    )
+        </foreach>
+    </insert>
+
+<!-- 单个更新 -->
+<update id="update${gfi.entityName}" parameterType="${gfi.pkgPathEntityName}">
+    update ${fileInfo.tabName}
+<set>
+    #foreach($data in $dataList )
+<if test="keyName != null">
+    $!{data.columnName30} = $!{data.colNameSymbolHumpComma30}
+</if>
+    #end
+</set>
+    where ID = #{id}
+</update>
+ 
+
+    <!-- 删除 -->
+<update id="delete${gfi.entityName}" >
+    DELETE tab
+    FROM ${fileInfo.tabName} tab
+    WHERE tab.id = #{id}
+</update>
+    
+
+ 
+
+<!-- 单个查询 -->
+<select id="get${gfi.entityName}ById" resultMap="BaseResultMapId" parameterType="Integer">
+
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM ${fileInfo.tabName}
+    WHERE id = #{id}
+
+</select>
+
+
+
+
+
+</mapper>

@@ -1,0 +1,35 @@
+##create fileInfo dao,this is a interface
+package ${fileInfo.beanDaoUrl};
+
+#foreach($data in $importSet )
+import ${data.path};
+#end
+
+
+/**
+* @author $!{developerInfo.authorName}
+* @email $!{developerInfo.authorMail}>
+* @date $!{developerInfo.date}
+* @desc $!{gfi.desc}
+* @version $!{developerInfo.version}
+*/
+public class $!{fileInfo.name}Entity {
+
+#foreach($data in $dataList )
+    /** $!{data.columnComment} */
+    private ${data.javaType.type} $!{data.colNameHump};
+#end
+
+#foreach($data in $dataList )
+
+    public void set$!{data.gsetter}(${data.javaType.type} $!{data.colNameHump}){
+        this.$!{data.colNameHump} = $!{data.colNameHump};
+    }
+
+    public ${data.javaType.type} get$!{data.gsetter}(){
+        return this.$!{data.colNameHump};
+    }
+#end
+
+
+}
