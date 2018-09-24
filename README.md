@@ -15,9 +15,10 @@
 ```
 
 # 生成代码的入口
+**/test/java/com.gen.generator.main.GenerateJavaFileTest**
 第二步: 修改数据库名称,表名,java文件头的作者,邮箱,
 ```
-    修改参数位置: /test/java/com.gen.generator.main.GenerateJavaFileTest
+
     --String dbName = "axiom"; // 数据库名称
     --String tabName = "keyvalue_job"; //表名
     --ConfigData.setAuthorName("zhanSan");
