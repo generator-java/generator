@@ -14,7 +14,7 @@
     --url: jdbc:mysql://127.0.0.1:3306/axiom?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
 ```
 
-第二步: # 生成代码的入口, 修改数据库名称,表名,java文件头的作者,邮箱,
+第二步:  # 生成代码的入口, 修改数据库名称,表名,java文件头的作者,邮箱,
 ```
     修改参数位置: /test/java/com.gen.generator.main.GenerateJavaFileTest
     --String dbName = "axiom"; // 数据库名称
