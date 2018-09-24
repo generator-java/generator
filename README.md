@@ -1,6 +1,6 @@
 # 1: 生成代码的入口
 ```
-    /test/java/com.gen.generator.main.GenerateJavaFileTest
+generator/test/java/com.gen.generator.main.GenerateJavaFileTest
 ```
 # 2: velocity代码生成器, java代码生成器
 ```
