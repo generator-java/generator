@@ -13,7 +13,7 @@ generator/test/java/com.gen.generator.main.GenerateJavaFileTest
 主要是要java处理数据格式,velocity用了替换模板中的代码, 对熟悉java的朋友拓展特别友好
 ```
 
-详情步骤
+# 4: 详情步骤
 第一步: 修改数据库连接,连接用户,和密码 
 ```
     --/resource/application-dev.xml
