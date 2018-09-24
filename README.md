@@ -16,6 +16,7 @@
 
 # 生成代码的入口
 **/test/java/com.gen.generator.main.GenerateJavaFileTest**
+
 第二步: 修改数据库名称,表名,java文件头的作者,邮箱,
 ```
 
