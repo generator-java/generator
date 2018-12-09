@@ -1,6 +1,5 @@
 package com.reference.demo;
 
-import com.sun.org.apache.xpath.internal.operations.String;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;

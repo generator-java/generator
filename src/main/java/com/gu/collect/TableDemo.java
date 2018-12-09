@@ -15,6 +15,8 @@ import com.google.common.collect.Table;
  * guava tutorial: https://www.tutorialspoint.com/guava/guava_caseformat.htm
  * java8 tutorial: https://www.tutorialspoint.com/java8/java8_streams.htm
  *
+ * 教程网站
+ * https://www.tutorialspoint.com/tutorialslibrary.htm
  *
  *
  */
@@ -22,7 +24,7 @@ import com.google.common.collect.Table;
 
 
 public class TableDemo {
-   public static void main(String args[]) throws JsonProcessingException {
+   public strictfp static void main(String args[]) throws JsonProcessingException {
    
       //Table<R,C,V> == Map<R,Map<C,V>>
       /*
