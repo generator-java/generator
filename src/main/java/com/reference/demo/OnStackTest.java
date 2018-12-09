@@ -7,6 +7,9 @@ package com.reference.demo;
  * 作者：bladestone
  * 来源：CSDN
  * 原文：https://blog.csdn.net/blueheart20/article/details/76167489
+ *
+ * https://docs.oracle.com/javase/8/docs/technotes/guides/vm/performance-enhancements-7.html#escapeAnalysis
+ * Escape analysis is supported and enabled by default in Java SE 6u23 and later.
  * 版权声明：本文为博主原创文章，转载请附上博文链接！
  *
  * 通过逃逸分析来决定某些实例或者变量是否要在堆中进行分配，如果开启了逃逸分析，
