@@ -18,13 +18,7 @@ public class GuavaCacheExpiredTimeDemo {
          CacheBuilder.newBuilder()
          .maximumSize(100)                             // maximum 100 records can be cached
          .expireAfterAccess(30, TimeUnit.MINUTES)      // cache will expire after 30 minutes of access
-         .build(new CacheLoader<>() {  // build the cacheloader
-            @Override
-            public Employee load(String empId){
-               //make the expensive call
-               return getFromDatabase(empId);
-            }
-         });
+         .build(null);
 
 
       try {

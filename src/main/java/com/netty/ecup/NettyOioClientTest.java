@@ -1,4 +1,4 @@
-package com.netty.demo;
+package com.netty.ecup;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -16,14 +16,14 @@ import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
 
-public class NettyOioClient {
-    private static final Logger logger = LoggerFactory.getLogger(NettyOioClient.class);
+public class NettyOioClientTest {
+    private static final Logger logger = LoggerFactory.getLogger(NettyOioClientTest.class);
 
 
     private final Integer port;
     private final String host;
 
-    public NettyOioClient(String host, Integer port) {
+    public NettyOioClientTest(String host, Integer port) {
         this.port = port;
         this.host = host;
     }
@@ -34,7 +34,7 @@ public class NettyOioClient {
         Bootstrap bootstrap = new Bootstrap();
 
         try {
-            NettyOioClientHandler handler = new NettyOioClientHandler(byteBuf);
+            NettyOioClientHandlerTest handler = new NettyOioClientHandlerTest(byteBuf);
             bootstrap.group(group)
                     .option(ChannelOption.SO_BACKLOG, 1024 * 1024)
                     .option(ChannelOption.SO_RCVBUF, 1024 * 1024)
@@ -58,5 +58,21 @@ public class NettyOioClient {
 
     }
 
+    public static void main(String[] args) throws Exception {
+        long start0 = System.currentTimeMillis();
 
+        for (int i = 0; i < 10000; i++) {
+            StringBuilder sb = new StringBuilder();
+            String msg = ",hello 8898=" + (i + 100);
+            sb.append(msg);
+            long start = System.currentTimeMillis();
+            new NettyOioClientTest("127.0.0.1", 8898).start(Unpooled.copiedBuffer(sb.toString(), CharsetUtil.UTF_8));
+            long consumeTime = System.currentTimeMillis() - start;
+            logger.info("client time=" + consumeTime);
+        }
+        long consumeTime0 = System.currentTimeMillis() - start0;
+        logger.info("================client time0=" + consumeTime0);
+        System.out.println("================client time0=" + consumeTime0);
+
+    }
 }
