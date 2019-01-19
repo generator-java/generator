@@ -18,6 +18,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.net.InetSocketAddress;
+import java.util.concurrent.TimeUnit;
 
 public class NettyOioClient {
     private static final Logger logger = LoggerFactory.getLogger(NettyOioClient.class);
@@ -43,8 +44,10 @@ public class NettyOioClient {
 
 
         NettyOioClientHandler handler = new NettyOioClientHandler(byteBuf);
+        ReadTimeoutHandler readTimeoutHandler = new ReadTimeoutHandler(1);
         bootstrap.option(ChannelOption.SO_BACKLOG, 1024 * 1024)// 配置TCP参数
                 .option(ChannelOption.SO_RCVBUF, 1024 * 1024)
+                .option(ChannelOption.SO_TIMEOUT, 1)
                 .option(ChannelOption.SO_KEEPALIVE, true) // 保持连接
                 .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
                 .remoteAddress(new InetSocketAddress(host, port))
@@ -52,7 +55,7 @@ public class NettyOioClient {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
 
-                        socketChannel.pipeline().addLast(handler);
+                        socketChannel.pipeline().addLast(readTimeoutHandler).addLast(handler);
                     }
                 });
         ChannelFuture cf = bootstrap.connect().sync();

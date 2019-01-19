@@ -65,7 +65,7 @@ public class NettyOioClientTest {
     public static void main(String[] args) throws Exception {
         long start0 = System.currentTimeMillis();
 
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 1; i <= 5000; i++) {
             StringBuilder sb = new StringBuilder();
             String msg = ",hello 8898=" + (i);
             sb.append(msg);

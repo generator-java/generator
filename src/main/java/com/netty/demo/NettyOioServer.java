@@ -31,7 +31,7 @@ public class NettyOioServer {
 
         final NettyOioServerHandler handler = new NettyOioServerHandler();
         EventLoopGroup group = new NioEventLoopGroup();
-
+        ReadTimeoutHandler readTimeoutHandler = new ReadTimeoutHandler(1);
         try {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(group)
@@ -44,7 +44,7 @@ public class NettyOioServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
-                            socketChannel.pipeline().addLast(handler);
+                            socketChannel.pipeline().addLast(readTimeoutHandler).addLast(handler);
                         }
                     });
             ChannelFuture cf = bootstrap.bind().sync();

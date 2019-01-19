@@ -17,7 +17,7 @@ public class OioECUPServerHandler extends ChannelInboundHandlerAdapter {
         ctx.close();
     }
 
-    private static int i = 0;
+    private static int i = 1;
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
