@@ -37,11 +37,13 @@ public class NettyOioClientHandler extends SimpleChannelInboundHandler<ByteBuf> 
     Logger logger = LoggerFactory.getLogger(NettyOioClientHandler.class);
 
     private ByteBuf byteBuf;
+    private ChannelHandlerContext svrCtx;
     private ByteBuf respData = Unpooled.compositeBuffer();
 //    private ByteBuf respData = Unpooled.buffer(50);
 
-    public NettyOioClientHandler(ByteBuf byteBuf) {
+    public NettyOioClientHandler(ChannelHandlerContext svrCtx,ByteBuf byteBuf) {
         this.byteBuf = byteBuf;
+        this.svrCtx = svrCtx;
     }
 
     public ByteBuf getRespData() {
@@ -50,13 +52,15 @@ public class NettyOioClientHandler extends SimpleChannelInboundHandler<ByteBuf> 
 
     @Override
     protected void messageReceived(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf) throws Exception {
-        System.out.println(respData);
-        respData = Unpooled.wrappedBuffer(respData, byteBuf);
-        System.out.println(respData);
-        //不能自动释放，还会调用然后返回给子系统
-        String ret = byteBuf.toString(CharsetUtil.UTF_8);
-        ReferenceCountUtil.retain(byteBuf);
-        logger.info("client received: " + ret);
+//        System.out.println(respData);
+//        respData = Unpooled.wrappedBuffer(respData, byteBuf);
+//        System.out.println(respData);
+//        //不能自动释放，还会调用然后返回给子系统
+//        String ret = byteBuf.toString(CharsetUtil.UTF_8);
+//        ReferenceCountUtil.retain(byteBuf);
+//        logger.info("client received: " + ret);
+//        ReferenceCountUtil.retain(byteBuf);
+        svrCtx.writeAndFlush(byteBuf);
     }
 
     @Override

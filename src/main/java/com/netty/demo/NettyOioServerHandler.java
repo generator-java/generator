@@ -23,29 +23,17 @@ public class NettyOioServerHandler extends ChannelInboundHandlerAdapter {
      * 如果不释放，高并发时报错（netty java.lang.OutOfMemoryError: Direct buffer memory）
      */
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        long start = System.currentTimeMillis();
+    public void channelRead(ChannelHandlerContext svrCtx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
-//        String receivedData = in.toString(CharsetUtil.UTF_8);
-//        System.out.println("server.received: "+ receivedData);
         ReferenceCountUtil.retain(msg);
         String host = InetAddress.getLocalHost().getHostAddress();
         NettyOioClient client = new NettyOioClient(host,8081);
-        ByteBuf ecupMessage = client.start(in);
+        ByteBuf ecupMessage = client.start(svrCtx,in);
         ReferenceCountUtil.retain(ecupMessage);
 
         String serverSay = "hi,client! I have received your  message! ";
         System.out.println(serverSay);
 
-        ctx.writeAndFlush(ecupMessage);
-
-        long consumeTime = System.currentTimeMillis() - start;
-        System.out.println(consumeTime);
-        //如果不释放，高并发时报错（netty java.lang.OutOfMemoryError: Direct buffer memory）
-        ReferenceCountUtil.release(msg);
-        ReferenceCountUtil.release(ecupMessage);
-        in.clear();
-        ecupMessage.clear();
 
     }
 

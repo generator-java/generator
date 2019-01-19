@@ -36,9 +36,9 @@ public class OioECUPServer {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(group)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG, 1024 * 1024)// 配置TCP参数
-                    .option(ChannelOption.SO_SNDBUF, 1024 * 1024) // 设置发送缓冲大小
-                    .option(ChannelOption.SO_RCVBUF, 1024 * 1024) // 这是接收缓冲大小
+                    .option(ChannelOption.SO_BACKLOG, 1024 * 1024* 1024)// 配置TCP参数
+                    .option(ChannelOption.SO_SNDBUF, 1024 * 1024* 1024) // 设置发送缓冲大小
+                    .option(ChannelOption.SO_RCVBUF, 1024 * 1024* 1024) // 这是接收缓冲大小
                     .option(ChannelOption.SO_KEEPALIVE, true) // 保持连接
                     .localAddress(new InetSocketAddress(port))
                     .childHandler(new ChannelInitializer<SocketChannel>() {

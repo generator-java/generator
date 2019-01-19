@@ -1,11 +1,13 @@
 package com.netty.ecup;
 
+import com.google.common.primitives.Chars;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.CharsetUtil;
 import io.netty.util.ReferenceCountUtil;
 
 @ChannelHandler.Sharable
@@ -21,7 +23,7 @@ public class OioECUPServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         ByteBuf in = (ByteBuf) msg;
-        System.out.println(i++);
+        System.out.println(i++ +"---"+ in.toString(CharsetUtil.UTF_8));
         ctx.writeAndFlush(in);
         in.clear();
     }
