@@ -41,6 +41,3 @@ generator/test/java/com.gen.generator.main.GenerateJavaFileTest
    select * from sysibm.columns where tabschema = 'XXUSER' and tabname = 'PRODUCT' 
 ```
 
-```
-有共享和贡献代码的道友欢迎来电:183 2872 0393
-```
