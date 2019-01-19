@@ -6,6 +6,7 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.ReferenceCountUtil;
 
 @ChannelHandler.Sharable
 public class OioECUPServerHandler extends ChannelInboundHandlerAdapter {
@@ -22,6 +23,7 @@ public class OioECUPServerHandler extends ChannelInboundHandlerAdapter {
         ByteBuf in = (ByteBuf) msg;
         System.out.println(i++);
         ctx.writeAndFlush(in);
+        in.clear();
     }
 
     @Override

@@ -44,8 +44,8 @@ public class NettyOioServerHandler extends ChannelInboundHandlerAdapter {
         //如果不释放，高并发时报错（netty java.lang.OutOfMemoryError: Direct buffer memory）
         ReferenceCountUtil.release(msg);
         ReferenceCountUtil.release(ecupMessage);
-//        in.clear();
-//        ecupMessage.clear();
+        in.clear();
+        ecupMessage.clear();
 
     }
 

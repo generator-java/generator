@@ -10,6 +10,28 @@ import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * https://blog.csdn.net/weixin_38009046/article/details/81985091
+ *
+ * eg:
+ *
+ * public static void main(String[] args) {
+ *
+ *         ByteBuf buffer = Unpooled.buffer(7);
+ *         ByteBuf buffer1 = Unpooled.buffer(10);
+ *
+ *         buffer.writeBytes("version".getBytes());
+ *         buffer1.writeBytes("version".getBytes());
+ *
+ *         ByteBuf byteBuf = Unpooled.wrappedBuffer(buffer, buffer1);
+ *
+ *         byteBuf.writeBytes("src".getBytes());
+ *         byteBuf.writeBytes("src".getBytes());
+ *         System.out.println(byteBuf.readerIndex());
+ *         System.out.println(byteBuf.writerIndex());
+ *     }
+ * 作者：weixin_38009046
+ */
 @ChannelHandler.Sharable
 public class NettyOioClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     Logger logger = LoggerFactory.getLogger(NettyOioClientHandler.class);
