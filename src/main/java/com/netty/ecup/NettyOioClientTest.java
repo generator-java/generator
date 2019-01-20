@@ -32,12 +32,12 @@ public class NettyOioClientTest {
     }
 
 
-    private static final EventLoopGroup group = new NioEventLoopGroup();
+    private static final EventLoopGroup group = new OioEventLoopGroup();
     private static final Bootstrap bootstrap = new Bootstrap();
 
     static {
         bootstrap.group(group)
-                .channel(NioSocketChannel.class);
+                .channel(OioSocketChannel.class);
     }
 
     public void start(ByteBuf byteBuf) throws Exception {
